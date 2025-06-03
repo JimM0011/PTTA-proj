@@ -26,20 +26,20 @@ const authors = [
   {
     name: "Jing Ma",
     // icon: "./icon/junyaohu.jpg",
-    homepage: "",
-    address_flag: "1,#"
+    homepage: "https://jimm0011.github.io/",
+    address_flag: "1,*"
   },
   {
     name: "Hanlin Li",
     // icon: "./icon/anya.jpg",
-    homepage: "",
-    address_flag: "1,#"
+    homepage: "https://vain222.github.io/",
+    address_flag: "1,*"
   },
   {
     name: "Xiang Xiang",
     // icon: "./icon/capoo.webp",
-    homepage: "",
-    address_flag: "1,2,#,*"
+    homepage: "https://eglxiang.github.io/",
+    address_flag: "1,2,*,#"
   },
 ]
 
@@ -61,7 +61,7 @@ const addresses = [
 
 // 共一和通讯提示
 const con_and_corresponding_author = 
-  "#: Equal Contribution. *: Corresponding Author."
+  "*: Equal Contribution. #: Corresponding Author."
 
 // 最新消息
 const news = "🔥 [2024-12-15] This template project is still under development."
@@ -79,9 +79,9 @@ const buttons = [
     component: Document,
   },
   {
-    disabled: true,
+    disabled: false,
     name: "Code",
-    // link: "https://github.com/JunyaoHu/academic-project-page-template-vue",
+    link: "https://github.com/HAIV-Lab/PTTA",
     component: Files,
   },
   {
@@ -110,9 +110,9 @@ const buttons = [
     </el-row>
 
     <!-- 文章logo -->
-    <!-- <el-row v-if="logo" justify="center">
+    <el-row v-if="logo" justify="center">
       <el-image :src="logo" class="logo" fit="cover" />
-    </el-row> -->
+    </el-row>
 
     <!-- 文章标题 -->
     <el-row justify="center">
@@ -162,7 +162,7 @@ const buttons = [
     <el-row justify="center" style="margin-bottom: 20px;">
       <el-col :span="20">
         <el-row justify="center">
-          <a :href=button.link v-for="button in buttons">
+          <a :href=button.link v-for="button in buttons" target="_blank">
             <el-button class="guidance-button" size="default" :color="btn_color" :disabled="button.disabled" round>
               <el-icon :size="18">
                 <component :is="button.component" />
@@ -265,8 +265,8 @@ const buttons = [
 }
 
 .logo {
-  width: 150px; 
-  height: 150px;
+  width: 180px; 
+  height: 180px;
   border-radius: 50%;
   box-shadow: #ced3dc 0px 0px 3px 2px;
   margin-top: 40px;
