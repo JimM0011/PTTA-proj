@@ -3,11 +3,11 @@ export default {
   data() {
     return {
       bibtex: [
-        "@article{junyaohu2023template,",
-        "    title={Academic Project Page Template Vue},",
-        "    author={Hu, Junyao},",
-        "    journal={GitHub},",
-        "    year={2023}",
+        "@inproceedings{ma2025ptta,",
+        "    title={PTTA: Purifying Malicious Samples for Test-Time Model Adaptation},",
+        "    author={Ma, Jing and Li, Hanlin and Xiang, Xiang},",
+        "    booktitle={Forty-second International Conference on Machine Learning},",
+        "    year={2025},",
         "}",
       ],
     }

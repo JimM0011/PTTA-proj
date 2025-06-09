@@ -1,7 +1,7 @@
 <script>
 import Title from './sections/Title.vue'
 import Abstract from './sections/Abstract.vue'
-// import Markdown from './sections/Markdown.vue'
+import Markdown from './sections/Markdown.vue'
 import BibTeX from './sections/BibTeX.vue'
 // import Carousel from './sections/Carousel.vue'
 // import Video from './sections/Video.vue'
@@ -21,8 +21,8 @@ export default {
   components: {
     Title,
     Abstract,
-    // Markdown,
-    // BibTeX,
+    Markdown,
+    BibTeX,
     // Carousel,
     // Video,
     // ImageSlider,
@@ -45,7 +45,7 @@ export default {
   <!-- <Carousel/> -->
   <!-- <Video/> -->
   <Abstract/>
-  <!-- <Markdown/> -->
+  <Markdown/>
   <!-- <Latex/> -->
   <!-- <Table/> -->
   <!-- <Collapse/> -->
