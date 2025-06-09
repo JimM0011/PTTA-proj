@@ -35,17 +35,17 @@ export default {
   <div>
     <el-row justify="center" style="margin-top: 30px; margin-bottom: 20px;">
         <el-col :xs="24" :sm="20" :md="16" :lg="12" :xl="12">
-            <div style="font-size: large;">
+            <p class="TLDR-text">
                 <b>
                     TL;DR (Too Long; Didn't Read):
                 </b>
                 &nbsp;
                 Rather than selecting and discarding malicious samples for test-time model adaptation, why not purify them into benign ones?
-            </div>
+            </p>
         </el-col>
     </el-row>
 
-    <el-row justify="center" style="margin-bottom: 30px;" id="id-laysummary-container">
+    <el-row justify="center" id="id-laysummary-container" style="margin-bottom: 30px;">
         <el-col :xs="24" :sm="20" :md="16" :lg="12" :xl="12">
             <div class="paper-content-detail-button" @click="toggleDetail">
                 <div v-if="!isDetailVisible" class="triangle-right"></div>
@@ -84,7 +84,6 @@ export default {
 </template>
 
 <style scoped>
-
 
 .abstract-img {
     width: 80%;
@@ -130,7 +129,7 @@ export default {
 
 @media (max-width: 576px) {
     .abstract-img {
-        width: 80%;
+        width: 90%;
         margin-left: 0px;
         margin-bottom: 10px;
         margin-top: 10px;
@@ -213,6 +212,12 @@ export default {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
+}
+
+.TLDR-text {
+    font-size: 18px;
+    line-height: 1.75rem;
+    margin: 0px 0px 0px 0px;
 }
 
 </style>
