@@ -73,7 +73,7 @@ export default {
         </el-col>
         <el-col :xs="24" :sm="20" :md="8" :lg="7" :xl="7" class="abstract-img-container">
             <img 
-                src="./abstract.jpg"
+                :src="'./abstract.jpg'"
                 alt="Pipeline"
                 class="abstract-img"
             >
