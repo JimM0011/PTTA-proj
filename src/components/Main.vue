@@ -1,7 +1,9 @@
 <script>
 import Title from './sections/Title.vue'
 import Abstract from './sections/Abstract.vue'
-import Markdown from './sections/Markdown.vue'
+import Malicious from './sections/Malicious.vue'
+// import Markdown from './sections/Markdown.vue'
+import Pipeline from './sections/Pipeline.vue'
 import BibTeX from './sections/BibTeX.vue'
 // import Carousel from './sections/Carousel.vue'
 // import Video from './sections/Video.vue'
@@ -21,7 +23,9 @@ export default {
   components: {
     Title,
     Abstract,
-    Markdown,
+    Malicious,
+    Pipeline,
+    // Markdown,
     BibTeX,
     // Carousel,
     // Video,
@@ -45,7 +49,8 @@ export default {
   <!-- <Carousel/> -->
   <!-- <Video/> -->
   <Abstract/>
-  <Markdown/>
+  <Malicious/>
+  <Pipeline/>
   <!-- <Latex/> -->
   <!-- <Table/> -->
   <!-- <Collapse/> -->

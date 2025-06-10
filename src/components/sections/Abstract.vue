@@ -33,7 +33,31 @@ export default {
 
 <template>
   <div>
+    <el-divider />
+    
     <el-row justify="center" style="margin-top: 30px; margin-bottom: 20px;">
+        <el-col :xs="24" :sm="18" :md="12" :lg="10" :xl="10">
+            <div class="news-container">
+                <div class="news-context">
+                    News
+                </div>
+                <div class="news-content">
+                    <div class="news-content-item">
+                        <div class="news-content-item-time">
+                            05 / 2025
+                        </div>
+                        <p>
+                            Our paper (PTTA) has been accepted by <a href="https://icml.cc/Conferences/2025" target="_blank">ICML 2025</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </el-col>
+    </el-row>
+
+    <el-divider />
+    
+    <el-row justify="center" style="margin-top: 20px; margin-bottom: 20px;">
         <el-col :xs="24" :sm="20" :md="16" :lg="12" :xl="12">
             <p class="TLDR-text">
                 <b>
@@ -195,6 +219,70 @@ export default {
     cursor: pointer;
 }
 
+.news-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;   
+}
+
+.news-context {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "MyFont", Verdana, sans-serif;
+    letter-spacing: 2px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.news-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.news-content-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+}
+
+.news-content-item-time {
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "MyFont", Verdana, sans-serif;
+    background: fixed linear-gradient(to right, #f0f0f0, #d9d9d9);
+    box-sizing: border-box;
+    padding: 2px 0px;
+    margin-right: 20px;
+    margin-top: 2px;
+}
+
+.news-content-item p {
+    margin: 0px;
+    text-align: center;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.3s;
 }
@@ -215,7 +303,7 @@ export default {
 }
 
 .TLDR-text {
-    font-size: 18px;
+    /* font-size: 18px; */
     line-height: 1.75rem;
     margin: 0px 0px 0px 0px;
 }

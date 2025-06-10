@@ -1,171 +1,94 @@
-# academic-project-page-template-vue
+<article align="center" style="margin-bottom: 20px;">
+    <h1 
+        align="center"
+        itemprop="title"
+        style="font-size: 30px; font-weight: bold; margin-bottom: 20px;"
+    >
+    PTTA: <br/>Purifying Malicious Samples for Test-Time Model Adaptation
+    </h1>
+</article>
 
-![img](https://github.com/user-attachments/assets/0b6084a8-ad9c-4a1b-81b2-1f9591c7eabb)
+<div
+    align="center"
+    style="font-size: 18px; margin-bottom: 20px;"
+>
+    <a href="https://jimm0011.github.io/" target='_blank'>Jing Ma</a><sup>1</sup>&emsp;
+    <a href="https://vain222.github.io/" target='_blank'>Hanlin Li</a><sup>1</sup>&emsp;
+    <a href="https://eglxiang.github.io/" target='_blank'>Xiang Xiang</a><sup>1,2</sup>
+</div>
 
-> This project is in development, and welcome any suggestions.
+<div 
+    align="center"
+    style="font-size: 16px; margin-bottom: 20px;"
+>
+<sup>1</sup>Huazhong University of Science and Technology (HUST)&emsp;
 
-This Vue-based repository is developed for an academic paper page template. It enables researchers to promote papers conveniently and intuitively. 
+<sup>2</sup>Peng Cheng National Lab&emsp;
+</div>
 
-Now it support:
-  - Icons of paper logo, author and affiliation
-  - Markdown (using `.MDX` file)
-  - Carousel
-  - Video (local, bilibili iframe, youtube iframe)
-  - ECharts
-  - Math LaTex Formula
-  - 3D and 3DGS model
-  - Other components used to visualize model results
-  - One-click copying of BibTeX
-  - Comment area
-  - ...
 
-**Usage Example**
+## Introduction
 
-- https://junyaohu.github.io/academic-project-page-template-vue/
-- https://longxuanx.github.io/CDFormer/
-- https://ydove0324.github.io/Imaginarium/
-- https://shailab-ipec.github.io/openfly/
-- https://lstriving.github.io/SG-Mamba/
-- https://cblxg.github.io/
-- More ...
+[![Website](https://img.shields.io/badge/Website-Online-27AE60.svg)](https://jimm0011.github.io/PTTA-proj/)
+[![Arxiv](https://img.shields.io/badge/Arxiv-Preprint-A42C24.svg)]()
 
-**Deployment Tutotial Video**: https://www.bilibili.com/video/BV1oUrfYzEqZ
+This repository contains the official implementation of [PTTA: Purifying Malicious Samples for Test-Time Model Adaptation]() published in [ICML 2025](https://icml.cc/Conferences/2025).
+Please check the [paper]() for more details.
 
-## Installation
+#### TL;DR (Too Long; Didn’t Read) :
 
-**1. Github: Create a new repository**
+> Rather than selecting and discarding malicious samples for test-time model adaptation, why not purify them into benign ones?
 
-Click `Create a new repository` to create a new copied repository based on this template for your site
 
-![image](https://github.com/user-attachments/assets/e828d5bf-1269-4602-b2ca-c7d20b9c7fe1)
 
-- if your repo name is `yourname.github.io`, your site will be on `yourname.github.io`
-- if your repo name is `xxx`, your site will be on `yourname.github.io/xxx`
+<details>
+<summary>
+    <b>Abstract :</b>
+</summary>
 
-![image](https://github.com/user-attachments/assets/38e7f97f-2fc9-446e-bdf2-53f1691b9f71)
+Test-Time Adaptation (TTA) enables deep neural networks to adapt to arbitrary distributions during inference. Existing TTA algorithms generally tend to select benign samples that help achieve robust online prediction and stable self-training. Although malicious samples that would undermine the model's optimization should be filtered out, it also leads to a waste of test data. To alleviate this issue, we focus on how to make full use of the malicious test samples for TTA by transforming them into benign ones, and propose a plug-and-play method, PTTA. The core of our solution lies in the purification strategy, which retrieves benign samples having opposite effects on the objective function to perform Mixup with malicious samples, based on a saliency indicator for encoding benign and malicious data. This strategy results in effective utilization of the information in malicious samples and an improvement of the models' online test accuracy. In this way, we can directly apply the purification loss to existing TTA algorithms without the need to carefully adjust the sample selection threshold. Extensive experiments on four types of TTA tasks as well as classification, segmentation, and adversarial defense demonstrate the effectiveness of our method.
 
-Reference: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site
+![Pipeline](./public/pipeline.jpg)
 
-**2. Github: Edit vite config**
+</details>
 
-in file `vite.config.js`, you should edit the `base` to your repo name xxx
 
-- if your repo name is `yourname.github.io`, set `base:'/',`
-- if your repo name is `xxx`, set `base:'/xxx',`
 
-```
-base:'/xxx',
-```
+<details>
+<summary>
+    <b>Lay Summary :</b>
+</summary>
 
-> This step is just so that you can intuitively understand that the website can work normally in your repository, and you can also make modifications manually in the following steps. 
+How can deep neural networks evolve through self-supervision without human intervention? This is a recent research trend, but difficult to solve well due to real-world complexity.
 
-**3. Github: Publish**
+Our paper identifies the "malicious sample hazards" as an obstacle to model self-evolution. Prior solutions typically select and filter out malicious samples that negatively impact model optimization, which also reduces utilization of already limited data. Rather than discarding them, why not purify malicious samples into benign ones? Surprisingly, we found that superimpose benign samples—which exert the most opposite influence on the objective function—onto malicious samples effectively mitigates these hazards. 
 
-Choose `gh-pages` branch to show your website on github, then you will see your website on `xxx.github.io` or `yourname.github.io/xxx`
+Our findings reveal a new direction: using purification strategies to boost sample utilization during autonomous machine learning. This enables stable and efficient self-supervised evolution of deep neural networks.
 
-![image](https://github.com/user-attachments/assets/c0d7198f-6254-48e7-bc23-924ce065eb53)
+</details>
 
-Reference: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-from-a-branch
 
-**4. Local PC: Prepare Vue environment**
- - install nodejs: (https://nodejs.org/zh-cn)
- - install vue: `npm create vue@latest` (https://cn.vuejs.org/guide/quick-start.html)
-  
-**5. Local PC: `Git clone` your new repo xxx**
 
-**6. Local PC: install dependencies**
-
-`npm i` to install necessary vue dependencies 
-
-**7. Local PC: Edit and preview your website**
-
-`npm run dev` to preview your website on your local pc, edit by yourself until you feel nice
-
-**8. Local PC: `git push`**
-
-`git push` to your copied repo, then .github/workflows will do the Github action to generate `gh-pages` branch automatically, you can wait a minute, `xxx.github.io` or `yourname.github.io/xxx` will be updated automatically.
-
-**9. After the first deployment**
-
-If you want to update your website again, you can edit your website locally and git push to your repo, `gh-pages` branch and the website will be both updated automatically soon.
-
-## How to edit this template?
-
-- Edit the content `<scripts>` in `.vue`, I have wrote some useful comments.
-
-For example, you can change the original content to your own info (like paper's tile, logo, your name, your address, and the guidance buttons of your other materials) in `src/components/sections/Title.vue`
+<details>
+<summary>
+    <b>BibTeX :</b>
+</summary>
 
 ```
-const logo = ''
-const title = ''
-const title_color = ''
-const title_supp = ''
-const title_supp_color = ''
-const btn_color = ''
-const authors = [
-  {
-    name: "",
-    icon: "",
-    homepage: "",
-    address_flag: ""
-  },
-  ...
-]
-
-const addresses = [
-  {
-    address_flag: "",
-    name: "",
-    icon: "",
-    homepage: ""
-  },
-  ...
-]
-
-const news = ""
-
-const emphases = [
-  "",
-  ...
-]
-
-const buttons = [
-  {
-    disabled: ,
-    name: "",
-    component: ,
-  },
-   ...
-]
+@inproceedings{ma2025ptta,
+  title={PTTA: Purifying Malicious Samples for Test-Time Model Adaptation},
+  author={Ma, Jing and Li, Hanlin and Xiang, Xiang},
+  booktitle={Forty-second International Conference on Machine Learning},
+  year={2025},
+}
 ```
 
-- If you want to change the layout and use other components, you can read Element Plus Doc (https://element-plus.org/zh-CN/component/overview.html).
+</details>
 
-## How to deploy your own comment area?
 
-> Twikoo is divided into two parts: cloud functions and front-end. To integrate Twikoo on your website, you need to deploy both cloud functions and front-end at the same time. Please pay attention to keeping the two versions consistent when deploying.
 
-There we have deploy the front-end for you, you should only build your own cloud functions.
+## News
 
-See [here](https://twikoo.js.org/backend.html) for more details. We recomment that you use [vercel](https://twikoo.js.org/backend.html#vercel-%E9%83%A8%E7%BD%B2) to do this. This can be more arbitrary, depending on you.
+- **May 2025**:
+🎉 Our paper (PTTA) has been accepted by [ICML 2025](https://icml.cc/).
 
-After building your own cloud functions, you can edit the config in `src/components/sections/Comment.vue`:
-
-```
-// Fill in envId for Tencent Cloud environment; fill in address for Vercel environment (https://xxx.versel.app)
-envId: 'https://blog-comment-nvoz-8o7dxhfbd-junyaohus-projects.vercel.app', 
-// default: 'ap-shanghai'，Tencent Cloud: 'ap-shanghai' / 'ap-guangzhou'; Vercel: ''
-region: '', 
-// comment area language， more supported languages: https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
-lang: 'zh-CN',
-```
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=JunyaoHu/academic-project-page-template-vue&type=Date)](https://star-history.com/#JunyaoHu/academic-project-page-template-vue&Date)
-
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
-
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
