@@ -1,8 +1,3 @@
-<script lang="ts" setup>
-import abstract from '../mds/abstract.mdx';
-import LaySummary from '../mds/laysummary.mdx';
-</script>
-
 <script lang="ts">
 
 export default {
@@ -34,7 +29,7 @@ export default {
 <template>
   <div>
     <el-divider />
-    
+
     <el-row justify="center" style="margin-top: 30px; margin-bottom: 20px;">
         <el-col :xs="24" :sm="18" :md="12" :lg="10" :xl="10">
             <div class="news-container">
@@ -80,7 +75,24 @@ export default {
             </div>
             <transition name="fade">
             <div v-if="isDetailVisible" class="paper-content-detail-container">
-                <LaySummary />
+                <p>
+                    How can deep neural networks evolve through self-supervision without human intervention?
+                    This is a recent research trend, but difficult to solve well due to real-world complexity.
+                </p>
+
+                <p>
+                    Our paper identifies the "malicious sample hazards" as an obstacle to model self-evolution.
+                    Prior solutions typically select and filter out malicious samples that negatively impact model optimization,
+                    which also reduces utilization of already limited data.
+                    Rather than discarding them, why not purify malicious samples into benign ones? Surprisingly, 
+                    we found that superimpose benign samples—which exert the most opposite influence on the objective function—onto malicious samples effectively mitigates these hazards. 
+                </p>
+                
+                <p>
+                    Our findings reveal a new direction: 
+                    using purification strategies to boost sample utilization during autonomous machine learning. 
+                    This enables stable and efficient self-supervised evolution of deep neural networks.
+                </p>
             </div>
             </transition>
         </el-col>
@@ -93,7 +105,24 @@ export default {
             Abstract
         </el-col>
         <el-col :xs="24" :sm="20" :md="12" :lg="10" :xl="10">
-            <abstract />
+            <p>
+                Test-Time Adaptation (TTA) enables deep neural networks to adapt to arbitrary distributions during inference. 
+                Existing TTA algorithms generally tend to select benign samples that help achieve robust online prediction and stable self-training. 
+                Although malicious samples that would undermine the model's optimization should be filtered out, 
+                it also leads to a waste of test data. 
+                To alleviate this issue, 
+                we focus on how to make full use of the malicious test samples for TTA by transforming them into benign ones, 
+                and propose a plug-and-play method, PTTA. 
+                The core of our solution lies in the purification strategy, 
+                which retrieves benign samples having opposite effects on the objective function to perform Mixup with malicious samples, 
+                based on a saliency indicator for encoding benign and malicious data. 
+                This strategy results in effective utilization of the information in malicious samples 
+                and an improvement of the models' online test accuracy. 
+                In this way, we can directly apply the purification loss to existing TTA algorithms 
+                without the need to carefully adjust the sample selection threshold. 
+                Extensive experiments on four types of TTA tasks as well as classification, segmentation, and adversarial defense 
+                demonstrate the effectiveness of our method. Code is available at <a href="https://github.com/HAIV-Lab/PTTA" target="_blank">https://github.com/HAIV-Lab/PTTA</a>.
+            </p>
         </el-col>
         <el-col :xs="24" :sm="20" :md="8" :lg="7" :xl="7" class="abstract-img-container">
             <img 
@@ -190,6 +219,10 @@ export default {
     padding: 0 20px 10px 20px;
 }
 
+.paper-content-detail-container p {
+    margin: 9px 0px;
+}
+
 .paper-content-detail-button {
     width: 100%;
     display: flex;
@@ -217,6 +250,7 @@ export default {
     padding-left: 16px;
     padding-right: 16px;
     cursor: pointer;
+    margin-bottom: 8px;
 }
 
 .news-container {
