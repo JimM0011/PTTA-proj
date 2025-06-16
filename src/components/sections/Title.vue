@@ -110,9 +110,9 @@ const buttons = [
     </el-row>
 
     <!-- 文章logo -->
-    <el-row v-if="logo" justify="center">
+    <!-- <el-row v-if="logo" justify="center">
       <el-image :src="logo" class="logo" fit="cover" />
-    </el-row>
+    </el-row> -->
 
     <!-- 文章标题 -->
     <el-row justify="center">
