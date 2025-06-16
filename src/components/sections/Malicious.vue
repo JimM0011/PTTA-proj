@@ -163,6 +163,22 @@ export default defineComponent({
     <el-row justify="center" v-if="isDetailSec2">
         <el-col 
             :xs="24" :sm="20" :md="16" :lg="12" :xl="12"
+            style="display: flex; flex-direction: row; align-items: center; justify-content: center;"
+        >
+            <div class="intro-malicious-img-title-1">
+                ResNet50
+            </div>
+            <div class="intro-malicious-img-title-2">
+                ViT-B/16
+            </div>
+        </el-col>
+    </el-row>
+    </transition>
+
+    <transition name="fade">
+    <el-row justify="center" v-if="isDetailSec2">
+        <el-col 
+            :xs="24" :sm="20" :md="16" :lg="12" :xl="12"
             class="intro-img-container"
         >
             <img
@@ -183,6 +199,18 @@ export default defineComponent({
 </template>
 
 <style scoped>
+
+.intro-malicious-img-title-1, .intro-malicious-img-title-2 {
+    width: 49%; 
+    text-align: center; 
+    font-size: 20px;
+    box-sizing: border-box;
+    padding-left: 10%;
+}
+
+.intro-malicious-img-title-2 {
+    padding-left: 5%;
+}
 
 .intro-img-container {
     display: flex;
