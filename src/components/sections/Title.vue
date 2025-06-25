@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import { ElIcon } from 'element-plus'
-import { Document, Files, MagicStick, Picture, DataAnalysis, Film } from '@element-plus/icons-vue'
+import { Document, Files, MagicStick, Picture, DataAnalysis, Film, Monitor } from '@element-plus/icons-vue'
 
 // logo地址，没有则置为""即可
 const logo = './logo.png'
@@ -53,7 +53,7 @@ const addresses = [
   },
   {
     address_flag: "2",
-    name: "Peng Cheng National Lab",
+    name: "Peng Cheng National Laboratory",
     // icon: "./icon/ikun.avif",
     homepage: "https://www.pcl.ac.cn/"
   },
@@ -74,8 +74,9 @@ const emphases = [
 // 提供引导资料链接
 const buttons = [
   {
-    disabled: true,
+    disabled: false,
     name: "Paper",
+    link: "https://icml.cc/virtual/2025/poster/45190",
     component: Document,
   },
   {
@@ -85,15 +86,22 @@ const buttons = [
     component: Files,
   },
   {
-    disabled: true,
+    disabled: false,
     name: "Poster",
+    link: "https://icml.cc/media/PosterPDFs/ICML%202025/45190.png?t=1750828509.9402223",
     component: Picture,
   },
   {
-    disabled: true,
+    disabled: false,
     name: "Video",
-    // link: "https://www.bilibili.com/video/BV15XkgYiE73/",
+    link: "https://www.youtube.com/watch?v=_GKZEYk0UHU",
     component: Film,
+  },
+  {
+    disabled: false,
+    name: "Slides",
+    link: "https://icml.cc/media/icml-2025/Slides/45190.pdf",
+    component: Monitor,
   },
 ]
 
